@@ -13,5 +13,8 @@
   "dependencies": {
     "connect-history-api-fallback": "^2.0.0",
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "opn": "^6.0.0"
   }
 }

@@ -1,14 +1,16 @@
 const history = require("connect-history-api-fallback");
 const express = require("express");
+const opn = require('opn')
 const app = express();
-let httpPort = 8090;
+let httpPort = 8080;
 
 function startServer(port) {
     app.use(history());
-    app.use(express.static("./dist"));
+    app.use(express.static("./docs"));
 
     const server = app.listen(port, () => {
         console.log(`服务器启动成功，请访问 http://localhost:${ port }`);
+        opn(`http://127.0.0.1:${ port }`)
     });
 
     server.on("error", (err) => {
