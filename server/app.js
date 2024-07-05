@@ -2,15 +2,21 @@ const history = require("connect-history-api-fallback");
 const express = require("express");
 const opn = require('opn')
 const app = express();
-let httpPort = 8080;
+require('dotenv').config({ path: 'config.env' })
+
+let httpPort = process.env.PORT;
+const routeUrl = process.env.ROUTE;
+const isOpen = process.env.OPEN_BROWSER;
 
 function startServer(port) {
-    app.use(history());
-    app.use(express.static("./docs"));
+    app.use(routeUrl, history());
+    app.use(routeUrl, express.static(process.env.WEB_PATH));
 
     const server = app.listen(port, () => {
-        console.log(`服务器启动成功，请访问 http://localhost:${ port }`);
-        opn(`http://127.0.0.1:${ port }`)
+        console.log(`服务器启动成功，请访问 http://localhost:${ port + routeUrl }`);
+        if(isOpen) {
+            opn(`http://127.0.0.1:${ port }`)
+        }
     });
 
     server.on("error", (err) => {
