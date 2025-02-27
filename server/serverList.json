@@ -1,0 +1,16 @@
+[
+    {
+        "route": "/",
+        "fileUrl": "./public/neimeng",
+        "port": 8080,
+        "isOpen": false,
+        "active": true
+    },
+    {
+        "route": "/",
+        "fileUrl": "./public/neimeng",
+        "port": 8081,
+        "isOpen": false,
+        "active": true
+    }
+]
