@@ -1,5 +1,6 @@
 [
     {
+        "name": "内蒙古管廊",
         "route": "/",
         "fileUrl": "./public/neimeng",
         "port": 8080,
@@ -7,8 +8,9 @@
         "active": true
     },
     {
+        "name": "海南计量大楼",
         "route": "/",
-        "fileUrl": "./public/neimeng",
+        "fileUrl": "./public/jldl",
         "port": 8081,
         "isOpen": false,
         "active": true
