@@ -11,7 +11,7 @@ const fileUrl = process.env.WEB_PATH
 let list = []
 
 function startServer(port) {
-    if(process.env.JSON_FILE && process.env.START_LIST) {
+    if(process.env.JSON_FILE && process.env.START_LIST === 'true') {
         // 使用异步方法读取文件
         fs.readFile(process.env.JSON_FILE, 'utf8', (err, data) => {
             if(err) {
@@ -58,7 +58,7 @@ function createServer({ app, routeUrl, port, isOpen, fileUrl, name }) {
 
     return app.listen(port, '0.0.0.0', () => { // 监听所有 IP
         console.log(`服务器启动成功，请访问 http://localhost:${ port + routeUrl } 或 http://${ getLocalIPAddress() }:${ port + routeUrl } ---${name}`);
-        if(isOpen) {
+        if(isOpen === 'true') {
             opn(`http://127.0.0.1:${ port }`);
         }
     });
